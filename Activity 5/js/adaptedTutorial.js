@@ -17,16 +17,42 @@ function createMap() {
     //calling getData function
     getData();
 };
+//onEachFeature function to loop through the MegaCities data and add to popups in html string format
+function onEachFeature(features, layer) {
+    //creation of variable to hold popup content from MegaCities
+    var popupContent = "";
+    if (features.properties) {
+        for (var property in features.properties) {
+            popupContent += "<p>" + property + ": " + features.properties[property] + "</p>";
+        }
+        layer.bindPopup(popupContent);
+    };
+};
 
 //getData function to retrieve MegaCities data
+//Callback function contains pointToLayer function to assign circles as markers with prescribed style
+//onEachFeature added to Callback to get circle markers to retrieve popup data from MegaCities loop
 function getData() {
     fetch('data/MegaCities.geojson')
         .then(function(response){
             return response.json();
         })
-        .then(function(json){
-            L.geoJson(json).addTo(mymap);
-        })
+        .then(function(json){                
+            var geojsonMarkerOptions = {
+                radius: 8,
+                fillColor: '#ff7800',
+                color: '#000',
+                weight: 1,
+                opacity: 1,
+                fillOpacity: 0.8
+            };            
+            L.geoJson(json, {
+                onEachFeature: onEachFeature,
+                pointToLayer: function (feature, latlng){
+                    return L.circleMarker(latlng, geojsonMarkerOptions);                    
+                }
+            }).addTo(mymap);            
+        });        
 };
 
 document.addEventListener('DOMContentLoaded', createMap)
