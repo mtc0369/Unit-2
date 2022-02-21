@@ -1,0 +1,1055 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+          "State": "Alabama",
+          "2010 Tornadoes": "",
+          "2010 Deaths": "",
+          "2011 Tornadoes": 16,
+          "2011 Deaths": 245,
+          "2012 Tornadoes": 3,
+          "2012 Deaths": 3,
+          "2013 Tornadoes": "",
+          "2013 Deaths": "",
+          "2014 Tornadoes": 1,
+          "2014 Deaths": 2,
+          "2015 Tornadoes": "",
+          "2015 Deaths": "",
+          "2016 Tornadoes": 2,
+          "2016 Deaths": 4,
+          "2017 Tornadoes": "",
+          "2017 Deaths": "",
+          "2018 Tornadoes": "",
+          "2018 Deaths": "",
+          "2019 Tornadoes": 2,
+          "2019 Deaths": 25,
+          "2020 Tornadoes": 3,
+          "2020 Deaths": 5
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -86.810585,
+            32.688053
+          ]
+        }
+      },      
+      {
+        "type": "Feature",
+        "properties": {
+          "State": "Arkansas",
+          "2010 Tornadoes": 1,
+          "2010 Deaths": 10,
+          "2011 Tornadoes": 5,
+          "2011 Deaths": 12,
+          "2012 Tornadoes": "",
+          "2012 Deaths": "",
+          "2013 Tornadoes": 1,
+          "2013 Deaths": 1,
+          "2014 Tornadoes": 2,
+          "2014 Deaths": 17,
+          "2015 Tornadoes": "",
+          "2015 Deaths": "",
+          "2016 Tornadoes": "",
+          "2016 Deaths": "",
+          "2017 Tornadoes": "",
+          "2017 Deaths": "",
+          "2018 Tornadoes": 1,
+          "2018 Deaths": 1,
+          "2019 Tornadoes": "",
+          "2019 Deaths": "",
+          "2020 Tornadoes": "",
+          "2020 Deaths": ""
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -92.640559,
+            34.755883
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "State": "Florida",
+          "2010 Tornadoes": "",
+          "2010 Deaths": "",
+          "2011 Tornadoes": "",
+          "2011 Deaths": "",
+          "2012 Tornadoes": 1,
+          "2012 Deaths": 1,
+          "2013 Tornadoes": "",
+          "2013 Deaths": "",
+          "2014 Tornadoes": "",
+          "2014 Deaths": "",
+          "2015 Tornadoes": "",
+          "2015 Deaths": "",
+          "2016 Tornadoes": 1,
+          "2016 Deaths": 2,
+          "2017 Tornadoes": "",
+          "2017 Deaths": "",
+          "2018 Tornadoes": "",
+          "2018 Deaths": "",
+          "2019 Tornadoes": "",
+          "2019 Deaths": "",
+          "2020 Tornadoes": "",
+          "2020 Deaths": ""
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -81.769611,
+            27.97762
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "State": "Georgia",
+          "2010 Tornadoes": "",
+          "2010 Deaths": "",
+          "2011 Tornadoes": 6,
+          "2011 Deaths": 16,
+          "2012 Tornadoes": "",
+          "2012 Deaths": "",
+          "2013 Tornadoes": 1,
+          "2013 Deaths": 1,
+          "2014 Tornadoes": "",
+          "2014 Deaths": "",
+          "2015 Tornadoes": "",
+          "2015 Deaths": "",
+          "2016 Tornadoes": "",
+          "2016 Deaths": "",
+          "2017 Tornadoes": 2,
+          "2017 Deaths": 16,
+          "2018 Tornadoes": "",
+          "2018 Deaths": "",
+          "2019 Tornadoes": "",
+          "2019 Deaths": "",
+          "2020 Tornadoes": 2,
+          "2020 Deaths": 9
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -83.380775,
+            32.53951
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "State": "Illinois",
+          "2010 Tornadoes": 1,
+          "2010 Deaths": 1,
+          "2011 Tornadoes": "",
+          "2011 Deaths": "",
+          "2012 Tornadoes": 2,
+          "2012 Deaths": 9,
+          "2013 Tornadoes": 3,
+          "2013 Deaths": 8,
+          "2014 Tornadoes": "",
+          "2014 Deaths": "",
+          "2015 Tornadoes": 1,
+          "2015 Deaths": 2,
+          "2016 Tornadoes": "",
+          "2016 Deaths": "",
+          "2017 Tornadoes": 2,
+          "2017 Deaths": 3,
+          "2018 Tornadoes": "",
+          "2018 Deaths": "",
+          "2019 Tornadoes": "",
+          "2019 Deaths": "",
+          "2020 Tornadoes": "",
+          "2020 Deaths": ""
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -89.191575,
+            40.265028
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "State": "Indiana",
+          "2010 Tornadoes": "",
+          "2010 Deaths": "",
+          "2011 Tornadoes": "",
+          "2011 Deaths": "",
+          "2012 Tornadoes": 2,
+          "2012 Deaths": 13,
+          "2013 Tornadoes": "",
+          "2013 Deaths": "",
+          "2014 Tornadoes": "",
+          "2014 Deaths": "",
+          "2015 Tornadoes": "",
+          "2015 Deaths": "",
+          "2016 Tornadoes": "",
+          "2016 Deaths": "",
+          "2017 Tornadoes": "",
+          "2017 Deaths": "",
+          "2018 Tornadoes": "",
+          "2018 Deaths": "",
+          "2019 Tornadoes": "",
+          "2019 Deaths": "",
+          "2020 Tornadoes": "",
+          "2020 Deaths": ""
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -86.250281,
+            39.904493
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "State": "Iowa",
+          "2010 Tornadoes": "",
+          "2010 Deaths": "",
+          "2011 Tornadoes": "",
+          "2011 Deaths": "",
+          "2012 Tornadoes": "",
+          "2012 Deaths": "",
+          "2013 Tornadoes": 1,
+          "2013 Deaths": 1,
+          "2014 Tornadoes": 1,
+          "2014 Deaths": 2,
+          "2015 Tornadoes": "",
+          "2015 Deaths": "",
+          "2016 Tornadoes": "",
+          "2016 Deaths": "",
+          "2017 Tornadoes": "",
+          "2017 Deaths": "",
+          "2018 Tornadoes": "",
+          "2018 Deaths": "",
+          "2019 Tornadoes": 1,
+          "2019 Deaths": 1,
+          "2020 Tornadoes": "",
+          "2020 Deaths": ""
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -93.500069,
+            42.039943
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "State": "Kansas",
+          "2010 Tornadoes": "",
+          "2010 Deaths": "",
+          "2011 Tornadoes": 2,
+          "2011 Deaths": 3,
+          "2012 Tornadoes": 1,
+          "2012 Deaths": 1,
+          "2013 Tornadoes": "",
+          "2013 Deaths": "",
+          "2014 Tornadoes": "",
+          "2014 Deaths": "",
+          "2015 Tornadoes": "",
+          "2015 Deaths": "",
+          "2016 Tornadoes": "",
+          "2016 Deaths": "",
+          "2017 Tornadoes": "",
+          "2017 Deaths": "",
+          "2018 Tornadoes": "",
+          "2018 Deaths": "",
+          "2019 Tornadoes": "",
+          "2019 Deaths": "",
+          "2020 Tornadoes": "",
+          "2020 Deaths": ""
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -98.380429,
+            38.500327
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "State": "Kentucky",
+          "2010 Tornadoes": "",
+          "2010 Deaths": "",
+          "2011 Tornadoes": "",
+          "2011 Deaths": "",
+          "2012 Tornadoes": 4,
+          "2012 Deaths": 22,
+          "2013 Tornadoes": "",
+          "2013 Deaths": "",
+          "2014 Tornadoes": "",
+          "2014 Deaths": "",
+          "2015 Tornadoes": "",
+          "2015 Deaths": "",
+          "2016 Tornadoes": "",
+          "2016 Deaths": "",
+          "2017 Tornadoes": "",
+          "2017 Deaths": "",
+          "2018 Tornadoes": 1,
+          "2018 Deaths": 1,
+          "2019 Tornadoes": "",
+          "2019 Deaths": "",
+          "2020 Tornadoes": "",
+          "2020 Deaths": ""
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -84.924095,
+            37.696825
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "State": "Louisiana",
+          "2010 Tornadoes": "",
+          "2010 Deaths": "",
+          "2011 Tornadoes": 1,
+          "2011 Deaths": 1,
+          "2012 Tornadoes": "",
+          "2012 Deaths": "",
+          "2013 Tornadoes": "",
+          "2013 Deaths": "",
+          "2014 Tornadoes": "",
+          "2014 Deaths": "",
+          "2015 Tornadoes": "",
+          "2015 Deaths": "",
+          "2016 Tornadoes": 1,
+          "2016 Deaths": 2,
+          "2017 Tornadoes": 2,
+          "2017 Deaths": 3,
+          "2018 Tornadoes": 1,
+          "2018 Deaths": 1,
+          "2019 Tornadoes": 2,
+          "2019 Deaths": 3,
+          "2020 Tornadoes": 3,
+          "2020 Deaths": 5
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -92.51441,
+            30.542601
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "State": "Maryland",
+          "2010 Tornadoes": "",
+          "2010 Deaths": "",
+          "2011 Tornadoes": "",
+          "2011 Deaths": "",
+          "2012 Tornadoes": "",
+          "2012 Deaths": "",
+          "2013 Tornadoes": "",
+          "2013 Deaths": "",
+          "2014 Tornadoes": "",
+          "2014 Deaths": "",
+          "2015 Tornadoes": "",
+          "2015 Deaths": "",
+          "2016 Tornadoes": "",
+          "2016 Deaths": "",
+          "2017 Tornadoes": "",
+          "2017 Deaths": "",
+          "2018 Tornadoes": 1,
+          "2018 Deaths": 2,
+          "2019 Tornadoes": "",
+          "2019 Deaths": "",
+          "2020 Tornadoes": "",
+          "2020 Deaths": ""
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -76.646717,
+            39.358828
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "State": "Massachusetts",
+          "2010 Tornadoes": "",
+          "2010 Deaths": "",
+          "2011 Tornadoes": 1,
+          "2011 Deaths": 3,
+          "2012 Tornadoes": "",
+          "2012 Deaths": "",
+          "2013 Tornadoes": "",
+          "2013 Deaths": "",
+          "2014 Tornadoes": "",
+          "2014 Deaths": "",
+          "2015 Tornadoes": "",
+          "2015 Deaths": "",
+          "2016 Tornadoes": "",
+          "2016 Deaths": "",
+          "2017 Tornadoes": "",
+          "2017 Deaths": "",
+          "2018 Tornadoes": "",
+          "2018 Deaths": "",
+          "2019 Tornadoes": "",
+          "2019 Deaths": "",
+          "2020 Tornadoes": "",
+          "2020 Deaths": ""
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -71.531484,
+            42.358752
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "State": "Michigan",
+          "2010 Tornadoes": 1,
+          "2010 Deaths": 1,
+          "2011 Tornadoes": "",
+          "2011 Deaths": "",
+          "2012 Tornadoes": "",
+          "2012 Deaths": "",
+          "2013 Tornadoes": "",
+          "2013 Deaths": "",
+          "2014 Tornadoes": "",
+          "2014 Deaths": "",
+          "2015 Tornadoes": "",
+          "2015 Deaths": "",
+          "2016 Tornadoes": "",
+          "2016 Deaths": "",
+          "2017 Tornadoes": "",
+          "2017 Deaths": "",
+          "2018 Tornadoes": "",
+          "2018 Deaths": "",
+          "2019 Tornadoes": "",
+          "2019 Deaths": "",
+          "2020 Tornadoes": "",
+          "2020 Deaths": ""
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -84.633107,
+            43.924812
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "State": "Minnesota",
+          "2010 Tornadoes": 3,
+          "2010 Deaths": 3,
+          "2011 Tornadoes": 1,
+          "2011 Deaths": 1,
+          "2012 Tornadoes": "",
+          "2012 Deaths": "",
+          "2013 Tornadoes": "",
+          "2013 Deaths": "",
+          "2014 Tornadoes": "",
+          "2014 Deaths": "",
+          "2015 Tornadoes": "",
+          "2015 Deaths": "",
+          "2016 Tornadoes": "",
+          "2016 Deaths": "",
+          "2017 Tornadoes": "",
+          "2017 Deaths": "",
+          "2018 Tornadoes": "",
+          "2018 Deaths": "",
+          "2019 Tornadoes": "",
+          "2019 Deaths": "",
+          "2020 Tornadoes": 1,
+          "2020 Deaths": 1
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -94.579641,
+            46.63636
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "State": "Mississippi",
+          "2010 Tornadoes": 5,
+          "2010 Deaths": 13,
+          "2011 Tornadoes": 6,
+          "2011 Deaths": 32,
+          "2012 Tornadoes": "",
+          "2012 Deaths": "",
+          "2013 Tornadoes": 2,
+          "2013 Deaths": 2,
+          "2014 Tornadoes": 4,
+          "2014 Deaths": 16,
+          "2015 Tornadoes": 2,
+          "2015 Deaths": 11,
+          "2016 Tornadoes": 1,
+          "2016 Deaths": 1,
+          "2017 Tornadoes": 2,
+          "2017 Deaths": 5,
+          "2018 Tornadoes": "",
+          "2018 Deaths": "",
+          "2019 Tornadoes": 2,
+          "2019 Deaths": 2,
+          "2020 Tornadoes": 5,
+          "2020 Deaths": 12
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -89.687118,
+            32.921921
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "State": "Missouri",
+          "2010 Tornadoes": 3,
+          "2010 Deaths": 5,
+          "2011 Tornadoes": 1,
+          "2011 Deaths": 158,
+          "2012 Tornadoes": 4,
+          "2012 Deaths": 6,
+          "2013 Tornadoes": "",
+          "2013 Deaths": "",
+          "2014 Tornadoes": "",
+          "2014 Deaths": "",
+          "2015 Tornadoes": "",
+          "2015 Deaths": "",
+          "2016 Tornadoes": "",
+          "2016 Deaths": "",
+          "2017 Tornadoes": "",
+          "2017 Deaths": "",
+          "2018 Tornadoes": 1,
+          "2018 Deaths": 1,
+          "2019 Tornadoes": 1,
+          "2019 Deaths": 3,
+          "2020 Tornadoes": "",
+          "2020 Deaths": ""
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -92.747022,
+            38.353141
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "State": "Montana",
+          "2010 Tornadoes": 1,
+          "2010 Deaths": 2,
+          "2011 Tornadoes": "",
+          "2011 Deaths": "",
+          "2012 Tornadoes": "",
+          "2012 Deaths": "",
+          "2013 Tornadoes": "",
+          "2013 Deaths": "",
+          "2014 Tornadoes": "",
+          "2014 Deaths": "",
+          "2015 Tornadoes": "",
+          "2015 Deaths": "",
+          "2016 Tornadoes": "",
+          "2016 Deaths": "",
+          "2017 Tornadoes": "",
+          "2017 Deaths": "",
+          "2018 Tornadoes": "",
+          "2018 Deaths": "",
+          "2019 Tornadoes": "",
+          "2019 Deaths": "",
+          "2020 Tornadoes": "",
+          "2020 Deaths": ""
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -109.645406,
+            47.001265
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "State": "Nebraska",
+          "2010 Tornadoes": "",
+          "2010 Deaths": "",
+          "2011 Tornadoes": "",
+          "2011 Deaths": "",
+          "2012 Tornadoes": "",
+          "2012 Deaths": "",
+          "2013 Tornadoes": "",
+          "2013 Deaths": "",
+          "2014 Tornadoes": 2,
+          "2014 Deaths": 2,
+          "2015 Tornadoes": "",
+          "2015 Deaths": "",
+          "2016 Tornadoes": "",
+          "2016 Deaths": "",
+          "2017 Tornadoes": "",
+          "2017 Deaths": "",
+          "2018 Tornadoes": "",
+          "2018 Deaths": "",
+          "2019 Tornadoes": "",
+          "2019 Deaths": "",
+          "2020 Tornadoes": "",
+          "2020 Deaths": ""
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -99.810075,
+            41.499671
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "State": "New York",
+          "2010 Tornadoes": 1,
+          "2010 Deaths": 1,
+          "2011 Tornadoes": "",
+          "2011 Deaths": "",
+          "2012 Tornadoes": "",
+          "2012 Deaths": "",
+          "2013 Tornadoes": "",
+          "2013 Deaths": "",
+          "2014 Tornadoes": 1,
+          "2014 Deaths": 4,
+          "2015 Tornadoes": "",
+          "2015 Deaths": "",
+          "2016 Tornadoes": "",
+          "2016 Deaths": "",
+          "2017 Tornadoes": "",
+          "2017 Deaths": "",
+          "2018 Tornadoes": 1,
+          "2018 Deaths": 1,
+          "2019 Tornadoes": "",
+          "2019 Deaths": "",
+          "2020 Tornadoes": "",
+          "2020 Deaths": ""
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -74.871618,
+            43.408777
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "State": "North Carolina",
+          "2010 Tornadoes": "",
+          "2010 Deaths": "",
+          "2011 Tornadoes": 6,
+          "2011 Deaths": 30,
+          "2012 Tornadoes": "",
+          "2012 Deaths": "",
+          "2013 Tornadoes": "",
+          "2013 Deaths": "",
+          "2014 Tornadoes": 1,
+          "2014 Deaths": 1,
+          "2015 Tornadoes": "",
+          "2015 Deaths": "",
+          "2016 Tornadoes": "",
+          "2016 Deaths": "",
+          "2017 Tornadoes": "",
+          "2017 Deaths": "",
+          "2018 Tornadoes": "",
+          "2018 Deaths": "",
+          "2019 Tornadoes": "",
+          "2019 Deaths": "",
+          "2020 Tornadoes": 1,
+          "2020 Deaths": 2
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -78.455056,
+            35.387362
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "State": "North Dakota",
+          "2010 Tornadoes": 1,
+          "2010 Deaths": 1,
+          "2011 Tornadoes": "",
+          "2011 Deaths": "",
+          "2012 Tornadoes": "",
+          "2012 Deaths": "",
+          "2013 Tornadoes": "",
+          "2013 Deaths": "",
+          "2014 Tornadoes": "",
+          "2014 Deaths": "",
+          "2015 Tornadoes": "",
+          "2015 Deaths": "",
+          "2016 Tornadoes": "",
+          "2016 Deaths": "",
+          "2017 Tornadoes": "",
+          "2017 Deaths": "",
+          "2018 Tornadoes": 1,
+          "2018 Deaths": 1,
+          "2019 Tornadoes": "",
+          "2019 Deaths": "",
+          "2020 Tornadoes": "",
+          "2020 Deaths": ""
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -100.469096,
+            47.471495
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "State": "Ohio",
+          "2010 Tornadoes": 1,
+          "2010 Deaths": 7,
+          "2011 Tornadoes": "",
+          "2011 Deaths": "",
+          "2012 Tornadoes": "",
+          "2012 Deaths": "",
+          "2013 Tornadoes": "",
+          "2013 Deaths": "",
+          "2014 Tornadoes": "",
+          "2014 Deaths": "",
+          "2015 Tornadoes": "",
+          "2015 Deaths": "",
+          "2016 Tornadoes": "",
+          "2016 Deaths": "",
+          "2017 Tornadoes": "",
+          "2017 Deaths": "",
+          "2018 Tornadoes": "",
+          "2018 Deaths": "",
+          "2019 Tornadoes": 1,
+          "2019 Deaths": 1,
+          "2020 Tornadoes": "",
+          "2020 Deaths": ""
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -82.883453,
+            40.262259
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "State": "Oklahoma",
+          "2010 Tornadoes": 2,
+          "2010 Deaths": 3,
+          "2011 Tornadoes": 5,
+          "2011 Deaths": 14,
+          "2012 Tornadoes": 1,
+          "2012 Deaths": 6,
+          "2013 Tornadoes": 3,
+          "2013 Deaths": 34,
+          "2014 Tornadoes": 1,
+          "2014 Deaths": 1,
+          "2015 Tornadoes": 2,
+          "2015 Deaths": 2,
+          "2016 Tornadoes": 2,
+          "2016 Deaths": 2,
+          "2017 Tornadoes": 1,
+          "2017 Deaths": 1,
+          "2018 Tornadoes": "",
+          "2018 Deaths": "",
+          "2019 Tornadoes": 2,
+          "2019 Deaths": 4,
+          "2020 Tornadoes": 1,
+          "2020 Deaths": 2
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.508021,
+            35.455622
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "State": "South Carolina",
+          "2010 Tornadoes": "",
+          "2010 Deaths": "",
+          "2011 Tornadoes": 1,
+          "2011 Deaths": 3,
+          "2012 Tornadoes": "",
+          "2012 Deaths": "",
+          "2013 Tornadoes": "",
+          "2013 Deaths": "",
+          "2014 Tornadoes": "",
+          "2014 Deaths": "",
+          "2015 Tornadoes": "",
+          "2015 Deaths": "",
+          "2016 Tornadoes": "",
+          "2016 Deaths": "",
+          "2017 Tornadoes": 1,
+          "2017 Deaths": 1,
+          "2018 Tornadoes": "",
+          "2018 Deaths": "",
+          "2019 Tornadoes": "",
+          "2019 Deaths": "",
+          "2020 Tornadoes": 3,
+          "2020 Deaths": 8
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -80.627523,
+            33.702857
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "State": "South Dakota",
+          "2010 Tornadoes": "",
+          "2010 Deaths": "",
+          "2011 Tornadoes": "",
+          "2011 Deaths": "",
+          "2012 Tornadoes": "",
+          "2012 Deaths": "",
+          "2013 Tornadoes": "",
+          "2013 Deaths": "",
+          "2014 Tornadoes": "",
+          "2014 Deaths": "",
+          "2015 Tornadoes": "",
+          "2015 Deaths": "",
+          "2016 Tornadoes": "",
+          "2016 Deaths": "",
+          "2017 Tornadoes": "",
+          "2017 Deaths": "",
+          "2018 Tornadoes": "",
+          "2018 Deaths": "",
+          "2019 Tornadoes": "",
+          "2019 Deaths": "",
+          "2020 Tornadoes": 1,
+          "2020 Deaths": 1
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -100.229958,
+            44.470716
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "State": "Tennessee",
+          "2010 Tornadoes": 1,
+          "2010 Deaths": 1,
+          "2011 Tornadoes": 8,
+          "2011 Deaths": 33,
+          "2012 Tornadoes": 2,
+          "2012 Deaths": 3,
+          "2013 Tornadoes": "",
+          "2013 Deaths": "",
+          "2014 Tornadoes": 1,
+          "2014 Deaths": 2,
+          "2015 Tornadoes": 1,
+          "2015 Deaths": 2,
+          "2016 Tornadoes": 1,
+          "2016 Deaths": 2,
+          "2017 Tornadoes": "",
+          "2017 Deaths": "",
+          "2018 Tornadoes": 1,
+          "2018 Deaths": 1,
+          "2019 Tornadoes": "",
+          "2019 Deaths": "",
+          "2020 Tornadoes": 5,
+          "2020 Deaths": 27
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -86.343764,
+            35.820245
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "State": "Texas",
+          "2010 Tornadoes": "",
+          "2010 Deaths": "",
+          "2011 Tornadoes": "",
+          "2011 Deaths": "",
+          "2012 Tornadoes": "",
+          "2012 Deaths": "",
+          "2013 Tornadoes": 2,
+          "2013 Deaths": 7,
+          "2014 Tornadoes": "",
+          "2014 Deaths": "",
+          "2015 Tornadoes": 6,
+          "2015 Deaths": 17,
+          "2016 Tornadoes": 1,
+          "2016 Deaths": 1,
+          "2017 Tornadoes": 2,
+          "2017 Deaths": 4,
+          "2018 Tornadoes": "",
+          "2018 Deaths": "",
+          "2019 Tornadoes": 2,
+          "2019 Deaths": 2,
+          "2020 Tornadoes": 2,
+          "2020 Deaths": 4
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -98.326329,
+            31.030974
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "State": "Virginia",
+          "2010 Tornadoes": "",
+          "2010 Deaths": "",
+          "2011 Tornadoes": 3,
+          "2011 Deaths": 6,
+          "2012 Tornadoes": "",
+          "2012 Deaths": "",
+          "2013 Tornadoes": "",
+          "2013 Deaths": "",
+          "2014 Tornadoes": "",
+          "2014 Deaths": "",
+          "2015 Tornadoes": "",
+          "2015 Deaths": "",
+          "2016 Tornadoes": 2,
+          "2016 Deaths": 4,
+          "2017 Tornadoes": "",
+          "2017 Deaths": "",
+          "2018 Tornadoes": 1,
+          "2018 Deaths": 1,
+          "2019 Tornadoes": "",
+          "2019 Deaths": "",
+          "2020 Tornadoes": "",
+          "2020 Deaths": ""
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -78.376655,
+            37.73086
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "State": "West Virginia",
+          "2010 Tornadoes": 1,
+          "2010 Deaths": 1,
+          "2011 Tornadoes": "",
+          "2011 Deaths": "",
+          "2012 Tornadoes": "",
+          "2012 Deaths": "",
+          "2013 Tornadoes": "",
+          "2013 Deaths": "",
+          "2014 Tornadoes": "",
+          "2014 Deaths": "",
+          "2015 Tornadoes": "",
+          "2015 Deaths": "",
+          "2016 Tornadoes": "",
+          "2016 Deaths": "",
+          "2017 Tornadoes": "",
+          "2017 Deaths": "",
+          "2018 Tornadoes": "",
+          "2018 Deaths": "",
+          "2019 Tornadoes": "",
+          "2019 Deaths": "",
+          "2020 Tornadoes": "",
+          "2020 Deaths": ""
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -80.649428,
+            38.720281
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "State": "Wisconsin",
+          "2010 Tornadoes": "",
+          "2010 Deaths": "",
+          "2011 Tornadoes": 1,
+          "2011 Deaths": 1,
+          "2012 Tornadoes": "",
+          "2012 Deaths": "",
+          "2013 Tornadoes": "",
+          "2013 Deaths": "",
+          "2014 Tornadoes": "",
+          "2014 Deaths": "",
+          "2015 Tornadoes": "",
+          "2015 Deaths": "",
+          "2016 Tornadoes": "",
+          "2016 Deaths": "",
+          "2017 Tornadoes": 1,
+          "2017 Deaths": 1,
+          "2018 Tornadoes": "",
+          "2018 Deaths": "",
+          "2019 Tornadoes": "",
+          "2019 Deaths": "",
+          "2020 Tornadoes": "",
+          "2020 Deaths": ""
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -89.466198,
+            44.356004
+          ]
+        }
+      }
+    ]
+  }
