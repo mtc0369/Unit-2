@@ -1,14 +1,15 @@
 //declaring a global map variable
 var mymap;
 
-//function to create the Leaflet basemap
+//function to create the Leaflet basemap and setting opening coordinates and zoom
+//setting max bounds for panning
 function createMap() {
-    mymap = L.map('mapid', {
-        center: [20, 0],
-        zoom: 2
-    });
-
-    //adding tile layer using only OpenStreet map and avoiding Mapbox
+    mymap = L.map('mapid').setView([39, -89], 5.2);
+    mymap.setMaxBounds([
+        [38, -130],
+        [38, -60]
+    ]);    
+    //adding tile layer from Thunderforest
     L.tileLayer('https://{s}.tile.thunderforest.com/transport-dark/{z}/{x}/{y}.png?apikey={apikey}', {
         attribution: '&copy; <a href="http://www.thunderforest.com/">Thunderforest</a>, &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
         apikey: '41071a22bdee4582b8af237baf91198c',
@@ -55,5 +56,5 @@ function getData() {
             }).addTo(mymap);            
         });        
 };
-
+//loading script to server
 document.addEventListener('DOMContentLoaded', createMap)

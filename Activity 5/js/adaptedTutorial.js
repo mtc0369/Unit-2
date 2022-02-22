@@ -29,9 +29,9 @@ function onEachFeature(features, layer) {
     };
 };
 
-//getData function to retrieve MegaCities data
-//Callback function contains pointToLayer function to assign circles as markers with prescribed style
-//onEachFeature added to Callback to get circle markers to retrieve popup data from MegaCities loop
+//getData function to retrieve MegaCities data.
+//Callback function contains pointToLayer function to assign circles as markers with prescribed style.
+//onEachFeature added to Callback to get circle markers to retrieve popup data from MegaCities loop.
 function getData() {
     fetch('data/MegaCities.geojson')
         .then(function(response){
@@ -54,9 +54,11 @@ function getData() {
             }).addTo(mymap);            
         });        
 };
-
+//loading script to server
 document.addEventListener('DOMContentLoaded', createMap)
 
+
+//Everything below copied from geojsonTutorial
 /*//initializing the map with coordinates and zoom value.
 var mymap = L.map('mapid').setView([39.75, -104.99], 10);
 

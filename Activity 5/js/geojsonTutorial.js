@@ -37,6 +37,7 @@ var states = [{
         ]]
     }
 }];
+//L.geoJSON method with anonymous function to add colors layer to map based on the party feature group.
 L.geoJSON(states, {
     style: function(feature) {
         switch (feature.properties.party) {
@@ -102,6 +103,7 @@ L.geoJSON(myLines, {
     style: myStyle
 }).addTo(mymap);
 
+//Everything below was original practice script before moving around to create code above.
 /*//empty GeoJSON layer that features can be added to later using the var name
 var myLayer = L.geoJSON().addTo(mymap);
 myLayer.addData(geojsonFeature);*/

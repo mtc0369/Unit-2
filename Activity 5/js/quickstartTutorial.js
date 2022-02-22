@@ -60,11 +60,11 @@ mymap.on('click', onMapClick);*/
 
 //adding popup window that provides lat lng rather than an alert window
 var popup = L.popup();
-
+//onMapClick function to create popup with html string text
 function onMapClick(e) {
     popup
         .setLatLng(e.latlng)
         .setContent('You clicked the map at ' + e.latlng.toString())//still works without adding '.toString()'
         .openOn(mymap);
 }
-mymap.on('click', onMapClick);
+mymap.on('click', onMapClick);//adding click function to map
