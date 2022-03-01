@@ -1,8 +1,7 @@
 /*Add CSS styles here*/
 
 body{
-    margin:0;
-    
+    margin:0;    
 }
 
 .custom-popup .leaflet-popup-content p {
@@ -23,6 +22,7 @@ If display is not set, the panel will be below the map.*/
     width: 70%;
     display: inline-block;
 }
+
 #panel {
     width: 25%;
     padding: 20px;
@@ -32,8 +32,12 @@ If display is not set, the panel will be below the map.*/
     line-height: 42px;
 }
 
-.range-slider {
+.range-slider {    
     width: 55%;
+    display: inline-block;
+    vertical-align: 35%;
+    text-align: center;
+    line-height: 42px;        
 }
 
 .step {
@@ -41,5 +45,5 @@ If display is not set, the panel will be below the map.*/
 }
 
 .step img {
-    width: 100%;
+    width: 75%;          
 }

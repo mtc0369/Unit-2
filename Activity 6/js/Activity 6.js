@@ -135,7 +135,7 @@ function createSequenceControls(seqAttributes) {
     //create a slider - range input element - special type of element with multiple manifestations such as check boxes
     var slider = "<input class='range-slider' type='range'></input>";//multiple ways to acomplish but this is easiest method.
     //adds reverse button to panel, left of slider and includes the word, which can be removed if an arrow is in its place.
-    document.querySelector("#panel").insertAdjacentHTML('beforeend', '<button class="step" id="reverse">Reverse</button>');
+    document.querySelector("#panel").insertAdjacentHTML('beforeend', '<button class="step" id="reverse"></button>');
     //adds slider to panel
     document.querySelector("#panel").insertAdjacentHTML('beforeend', slider);
 
@@ -145,11 +145,11 @@ function createSequenceControls(seqAttributes) {
     document.querySelector('.range-slider').step = 1;//tells slider to advance in increments of 1.
 
     //adds forward button to panel, right of slider and includes the word, which can be removed if an arrow is in its place.
-    document.querySelector("#panel").insertAdjacentHTML('beforeend', '<button class="step" id="forward">Forward</button>');
+    document.querySelector("#panel").insertAdjacentHTML('beforeend', '<button class="step" id="forward"></button>');
 
     //Inserting buttons in place of reverse and forward - need to get png from noun project or another source and replace link
-    document.querySelector('#reverse').insertAdjacentHTML('beforeend', '<img src="img/reverse.png">');
-    document.querySelector('#forward').insertAdjacentHTML('beforeend', '<img src="img/forward.png">');
+    document.querySelector('#reverse').insertAdjacentHTML('beforeend', '<img src="img/arrow_reverse.png">');
+    document.querySelector('#forward').insertAdjacentHTML('beforeend', '<img src="img/arrow_forward.png">');
 
     //add sequence conrols - click listener for forward and reverse buttons
     //need querySelectorAll to encompase all functions in the class .step

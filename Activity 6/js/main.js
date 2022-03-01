@@ -4,7 +4,7 @@ var minValue;
 
 //function to create the Leaflet basemap
 function createMap() {
-    mymap = L.map('mapid').setView([39, -89], 5.2);
+    mymap = L.map('mapid').setView([39, -89], 5.4);
     mymap.setMaxBounds([
         [38, -130],
         [38, -60]
@@ -46,7 +46,7 @@ function calcPropRadius(attValue) {
     //variable to hold number used in formula below to size Prop sybols evenly
     var minRadius = 5
     //Flannery Appearance Compensation formula held in new variable
-    var radius = 1.0083 * Math.pow(attValue/minValue, 0.5715) * minRadius
+    var radius = 1.0083 * Math.pow(attValue/1, 0.5715) * minRadius
     console.log(radius)
     //return the radius of each symbol
     return radius;
