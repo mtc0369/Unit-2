@@ -17,8 +17,47 @@ function createMap() {
     //calling getData function
     getData(mymap);
 };
+//Example 2.1 Implemeting popups in a pointToLayer function
+function pointToLayer(features, latlng) {
+    //determine which attribute to visulaize with proportional symbols
+    var attribute = "Pop_2015";
 
-function calculateMinValue(data){
+    //create and style markers
+    var options = {
+        radius: 8,
+        fillColor: "#ff7800",
+        color: "#000",
+        weight: 1,
+        opacity: 1,
+        fillOpacity: 0.8
+    };
+    //determine the feature values for the attribute
+    var attValue = Number(features.properties[attribute]);//forces value to be read as numeric
+
+    //assign circle markers a radius based on the values
+    options.radius = calcPropRadius(attValue);
+
+    //create circle marker layer and assign it to new variable
+    var layer = L.circleMarker(latlng, options);
+
+    //build the popup content string
+    var popupContent = "<p><b>City:</b> " + features.properties.City + "</p><p><b>" + attribute + ":</b> " + features.properties[attribute] + "</p>";
+    
+    //bind the popup to the circle marker
+    layer.bindPopup(popupContent);
+
+    //return the circlemarker with popup to the L.geoJson pointToLayer option
+    return layer;
+};
+
+//add the prop symbol markers to the map
+function createPropSymbols(data, mymap) {
+    //add leaflet geoJSON layer to the map
+    L.geoJson(data, {
+        pointToLayer: pointToLayer
+    }).addTo(mymap);
+};
+/*function calculateMinValue(data){
     //create empty array to store all data values
     var allValues = [];
     //loop through each city
@@ -74,7 +113,7 @@ function createPropSymbols(data){
             return L.circleMarker(latlng, geojsonMarkerOptions);
         }
     }).addTo(mymap);
-};
+};*/
 
 //Step 2: Import GeoJSON data
 function getData(){
@@ -85,7 +124,7 @@ function getData(){
         })
         .then(function(json){
             //calculate minimum data value
-            minValue = calculateMinValue(json);
+            //minValue = calculateMinValue(json);
             //call function to create proportional symbols
             createPropSymbols(json);
         })
@@ -191,3 +230,44 @@ function getData(){
 };
 
 document.addEventListener('DOMContentLoaded',createMap)*/
+
+//function to convert markers to circle markers
+function pointToLayer(feature, latlng){
+    //Determine which attribute to visualize with proportional symbols
+    var attribute = "Pop_2015";
+
+    //create marker options
+    var options = {
+        fillColor: "#ff7800",
+        color: "#000",
+        weight: 1,
+        opacity: 1,
+        fillOpacity: 0.8
+    };
+
+    //For each feature, determine its value for the selected attribute
+    var attValue = Number(feature.properties[attribute]);
+
+    //Give each feature's circle marker a radius based on its attribute value
+    options.radius = calcPropRadius(attValue);
+
+    //create circle marker layer
+    var layer = L.circleMarker(latlng, options);
+
+    //build popup content string
+    var popupContent = "<p><b>City:</b> " + feature.properties.City + "</p><p><b>" + attribute + ":</b> " + feature.properties[attribute] + "</p>";
+
+    //bind the popup to the circle marker
+    layer.bindPopup(popupContent);
+
+    //return the circle marker to the L.geoJson pointToLayer option
+    return layer;
+};
+
+//Add circle markers for point features to the map
+function createPropSymbols(data, map){
+    //create a Leaflet GeoJSON layer and add it to the map
+    L.geoJson(data, {
+        pointToLayer: pointToLayer
+    }).addTo(map);
+};

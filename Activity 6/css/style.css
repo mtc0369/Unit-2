@@ -2,8 +2,44 @@
 
 body{
     margin:0;
+    
 }
-#mapid{
-    height:100vh;
-    width:100vw;
+
+.custom-popup .leaflet-popup-content p {
+    margin: 0.2em 0;    
+}
+.custom-popup .leaflet-popup-content-wrapper {
+    background:#0d78e2;
+    color:#fff;
+    font-size:14px;    
+}  
+  
+/*the mapid and the panel should be side-by-side
+and the display settings should equal to each other indicating the elements are lin-line with each other.
+If display is not set, the panel will be below the map.*/
+
+#mapid {
+    height: 400px;
+    width: 70%;
+    display: inline-block;
+}
+#panel {
+    width: 25%;
+    padding: 20px;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    line-height: 42px;
+}
+
+.range-slider {
+    width: 55%;
+}
+
+.step {
+    width: 20%;
+}
+
+.step img {
+    width: 100%;
 }
