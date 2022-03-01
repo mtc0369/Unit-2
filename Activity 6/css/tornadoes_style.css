@@ -3,7 +3,44 @@
 body{
     margin:0;
 }
+
+.custom-popup .leaflet-popup-content p {
+    margin: 0.2em 0;    
+}
+.custom-popup .leaflet-popup-content-wrapper {
+    background:#0d78e2;
+    color:#fff;
+    font-size:14px;    
+}  
+
 #mapid{
     height:100vh;
-    width:100vw;
+    width:70vw;
+    display: inline-block;
+}
+
+#panel {
+    width: 25%;
+    padding: 20px;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    line-height: 42px;
+    background:#0d78e2;
+}
+
+.range-slider {    
+    width: 55%;
+    display: inline-block;
+    vertical-align: 25%;
+    text-align: center;
+    line-height: 42px;        
+}
+
+.step {
+    width: 20%;
+}
+
+.step img {
+    width: 75%;          
 }
