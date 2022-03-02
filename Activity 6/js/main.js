@@ -54,7 +54,7 @@ function calcPropRadius(attValue) {
     return radius;
 };
 
-//Example 2.1 Implemeting popups in a pointToLayer function
+//Implemeting popups in a pointToLayer function
 function pointToLayer(features, latlng, seqAttributes) {
     //determine which attribute to visulaize with proportional symbols
     //attribute and index calls on the year
@@ -84,9 +84,11 @@ function pointToLayer(features, latlng, seqAttributes) {
     var year = attribute.split(" ")[0];
     popupContent += "<p><b>Tornado Fatalities in " + year + ":</b> " + features.properties[attribute] + "</p>";
 
-    //var photoImg = '<img src="img/arrow_reverse.png">';
-    //popupContent = photoImg;
-
+    //Attempt at adding an image to the popup
+    //var popupImg = '<img src="img/tornado.png">';
+    //popupContent = "<p>" + popupImg + "</p>";
+    //popupContent ="<img src='" + popupImg + "'" + " class=popupImage " + "/>";
+    
     //bind the popup to the circle marker and create an offset so popup doesn't cover symbol
     layer.bindPopup(popupContent, {
         offset: new L.Point(0,-options.radius)
