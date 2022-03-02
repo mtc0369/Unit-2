@@ -10,7 +10,7 @@ function createMap() {
         [39, -60]
     ]);  
 
-    //adding tile layer using only OpenStreet map and avoiding Mapbox
+    //adding tile layer 
     L.tileLayer('https://{s}.tile.thunderforest.com/transport-dark/{z}/{x}/{y}.png?apikey={apikey}', {
         attribution: '&copy; <a href="http://www.thunderforest.com/">Thunderforest</a>, &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
         apikey: '41071a22bdee4582b8af237baf91198c',
@@ -46,6 +46,7 @@ function calcPropRadius(attValue) {
     //variable to hold number used in formula below to size Prop sybols evenly
     var minRadius = 5
     //Flannery Appearance Compensation formula held in new variable
+    //replaced minRadius in equation with 1, zeros return NaN or Infinity
     var radius = 1.0083 * Math.pow(attValue/1, 0.5715) * minRadius
     
     console.log(radius)
@@ -56,7 +57,7 @@ function calcPropRadius(attValue) {
 //Example 2.1 Implemeting popups in a pointToLayer function
 function pointToLayer(features, latlng, seqAttributes) {
     //determine which attribute to visulaize with proportional symbols
-    //"Pop_2015" replaced with attribute and index, in this case calling on 1985
+    //attribute and index calls on the year
     var attribute = seqAttributes[0];//because pointTolayer was reconfigured, the new attribute variable can be passed through this function
 
     //create and style markers
@@ -76,13 +77,16 @@ function pointToLayer(features, latlng, seqAttributes) {
     //create circle marker layer and assign it to new variable
     var layer = L.circleMarker(latlng, options);
 
-    //build the popup content string - City and attribute label in bold
-    var popupContent = "<p><b>State:</b> " + features.properties.State + "</p>"//<p><b>" + attribute + ":</b> " + features.properties[attribute] + "</p>";
+    //build the popup content string - State and attribute label in bold
+    var popupContent = "<p><b>State:</b> " + features.properties.State + "</p>";
 
-    //adding formatted attribute data to popup content - string info in bold
+    //adding formatted attribute data to popup content - Tornado fatalities, index 0 for year
     var year = attribute.split(" ")[0];
     popupContent += "<p><b>Tornado Fatalities in " + year + ":</b> " + features.properties[attribute] + "</p>";
-    
+
+    //var photoImg = '<img src="img/arrow_reverse.png">';
+    //popupContent = photoImg;
+
     //bind the popup to the circle marker and create an offset so popup doesn't cover symbol
     layer.bindPopup(popupContent, {
         offset: new L.Point(0,-options.radius)
@@ -107,7 +111,7 @@ function createPropSymbols(data, seqAttributes) {
 function processData(data) {
     //create empty array to hold attribute data
     var attributes = [];
-
+    
     //variable for the properties of the first feature in the dataset - 0 index
     var properties = data.features[0].properties;
     //console.log(data.features[0].properties);
@@ -121,12 +125,11 @@ function processData(data) {
     };
     //check the result
     console.log(attributes);
-
+    //return data in attributes container
     return attributes;
-}
+};
 
 //Create sequence controls
-//add a paramenter 'attributes' to the function and the callback at the end of script
 function createSequenceControls(seqAttributes) {
     //create a slider - range input element - special type of element with multiple manifestations such as check boxes
     var slider = "<input class='range-slider' type='range'></input>";//multiple ways to acomplish but this is easiest method.
@@ -135,7 +138,7 @@ function createSequenceControls(seqAttributes) {
     //adds slider to panel
     document.querySelector("#panel").insertAdjacentHTML('beforeend', slider);
 
-    document.querySelector('.range-slider').max = 11;//direct HTML element representing max value of the slider - set at 6 because index is 0-6
+    document.querySelector('.range-slider').max = 10;//direct HTML element representing max value of the slider - index 10
     document.querySelector('.range-slider').min = 0;
     document.querySelector('.range-slider').value = 0;//sets current value
     document.querySelector('.range-slider').step = 1;//tells slider to advance in increments of 1.
@@ -159,11 +162,11 @@ function createSequenceControls(seqAttributes) {
             if (step.id == 'forward') {
                 index++;
                 //wraps sequence around to the first attribute once the last attribute is exceeded.
-                index = index > 11 ? 0 : index;
+                index = index > 10 ? 0 : index;
             } else if (step.id == 'reverse') {
                 index--;
                 //wraps sequence around to the last attribute if the first attribute is exceeded.
-                index = index < 0 ? 11 : index;
+                index = index < 0 ? 10 : index;
             };
 
             //updates the slider tool - connects the click loop to the slider, will not work without this. 
@@ -190,30 +193,29 @@ function createSequenceControls(seqAttributes) {
 function updatePropSymbols(attribute) {
     //.eachLayer iterates through every layer added to the map and provides everthing in that layer with each iteration
     mymap.eachLayer(function(layer) {
-        //console.log(layer);//shows all objects including the basemap, which we do not want to iterate through,
-        //so we need to find a way to only get the objects we want.
+        //console.log(layer);//shows all objects including the basemap
+
         //the conditional if statement below selects objects by based on if they have features and attributes.
-        if (layer.feature){//.feature.properties[attribute]){
+        if (layer.feature){//removed '&& layer.feature.properties[attribute]'- prevented 0 value symbols from updating
             //console.log(layer)//logs only objects with features and attributes, asks if this conditional exists
+            
             //update the layer style and popup and access feature properties
             //includes all feature properties within 1 data point and holds them in the props variable.
             var props = layer.feature.properties;
             
             //logs values for a particular year in each city
-            //props will return the compete object, adding the [attribute] will return the values, 
-            //can return any object from the array by entering it in the brackets.
             //console.log(props[attribute]);
 
             //update each feature symbols radius based on iterated attribute values
             //access existing calcPropRadius function
-            //although its same syntax as an array, it is an object, not an array
+            //although its same syntax as an array, it is an object
             var radius = calcPropRadius(props[attribute]);
             layer.setRadius(radius);
 
             //built in function for leaflet that will change the prop symbol radius based on the values
             layer.setRadius(radius);
 
-            //add city popup content string
+            //add popup content string for State
             var popupContent = "<p><b>State:</b> " + props.State + "</p>";
 
             //add attribute data to string
@@ -228,6 +230,29 @@ function updatePropSymbols(attribute) {
     });
 };
 
+//getData function to retrieve data from Deadliest Tornadoes geoJSON
+//Callback function calls functions above.
+function getData() {
+    fetch('data/Deadliest_Tornadoes.geojson')
+        .then(function(response){
+            return response.json();
+        })
+        .then(function(json){                
+            //create variable to hold all attributes in the sequence set equal to processdata function
+            var seqAttributes = processData(json);
+            //callback function calling the calculateMinValue function and
+            //assigning the values to the minValue global variable
+            minValue = calculateMinValue(json);
+            createPropSymbols(json, seqAttributes);
+            createSequenceControls(seqAttributes);           
+        });        
+};
+//loads basemap defined in createMap function and assigned to mymap global variable
+document.addEventListener('DOMContentLoaded', createMap);
+
+
+
+//Leftover code from activity 5, no longer needed
 /*//function adds circle markers for the cities population values and styles markers
 function createPropSymbols(data){
     var attribute = '2010 Deaths';
@@ -264,23 +289,4 @@ function onEachFeature(features, layer) {
     };
 };*/
 
-//getData function to retrieve data from Deadliest Tornadoes geoJSON
-//Callback function contains pointToLayer function to assign circles as markers with prescribed style
-//onEachFeature added to Callback to get circle markers to retrieve popup data from MegaCities loop
-function getData() {
-    fetch('data/Deadliest_Tornadoes.geojson')
-        .then(function(response){
-            return response.json();
-        })
-        .then(function(json){                
-            //create variable to hold all attributes in the sequence set equal to processdata function
-            var seqAttributes = processData(json);
-            //callback function calling the calculateMinValue function and
-            //assigning the values to the minValue global variable
-            minValue = calculateMinValue(json);
-            createPropSymbols(json, seqAttributes);
-            createSequenceControls(seqAttributes);           
-        });        
-};
-//loads basemap defined in createMap function and assigned to mymap global variable
-document.addEventListener('DOMContentLoaded', createMap);
+

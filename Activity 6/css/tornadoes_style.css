@@ -7,11 +7,18 @@ body{
 .custom-popup .leaflet-popup-content p {
     margin: 0.2em 0;    
 }
+
 .custom-popup .leaflet-popup-content-wrapper {
-    background:#0d78e2;
+    background:#0881fa;
     color:#fff;
-    font-size:14px;    
-}  
+    text-align: center;
+    font-size:16px;
+    border-radius: 50px;  
+}
+
+.custom-popup .leaflet-popup-tip {
+    background:#95c6f7;
+    }
 
 #mapid{
     height:100vh;
@@ -26,7 +33,7 @@ body{
     vertical-align: top;
     text-align: center;
     line-height: 42px;
-    background:#0d78e2;
+    background:#a2caf3;
 }
 
 .range-slider {    
