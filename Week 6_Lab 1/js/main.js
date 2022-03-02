@@ -32,8 +32,8 @@ function calculateMinValue(data) {
             //push the population values to the empty array above
             allValues.push(value);
             
-        };
-    };
+        }
+    }
     //call on global variable created at the top of script to return the minimum
     //for the new allValues array
     var minValue = Math.min(...allValues)
@@ -52,6 +52,22 @@ function calcPropRadius(attValue) {
     console.log(radius)
     //return the radius of each symbol
     return radius;
+};
+
+//added function to replace the redundant code in pointToLayer and updatepropSymbols functions
+function createPopupContent(properties, attribute){
+    //build the popup content string - State and attribute label in bold
+    var popupContent = "<p><b>State:</b> " + properties.State + "</p>";
+
+    //Adding an image to the popup
+    var popupImg = '<img  class="popupImage" src="img/tornado.png">';
+    popupContent += "<p>" + popupImg + "</p>";//need += because just an = will override content above
+
+    //adding formatted attribute data to popup content - Tornado fatalities, index 0 for year
+    var year = attribute.split(" ")[0];
+    popupContent += "<p><b>Tornado Fatalities in " + year + ":</b> " + properties[attribute] + "</p>";
+
+    return popupContent;
 };
 
 //Implemeting popups in a pointToLayer function
@@ -75,19 +91,10 @@ function pointToLayer(features, latlng, seqAttributes) {
     options.radius = calcPropRadius(attValue);
 
     //create circle marker layer and assign it to new variable
-    var layer = L.circleMarker(latlng, options);
+    var layer = L.circleMarker(latlng, options);    
 
-    //build the popup content string - State and attribute label in bold
-    var popupContent = "<p><b>State:</b> " + features.properties.State + "</p>";
-
-    //adding formatted attribute data to popup content - Tornado fatalities, index 0 for year
-    var year = attribute.split(" ")[0];
-    popupContent += "<p><b>Tornado Fatalities in " + year + ":</b> " + features.properties[attribute] + "</p>";
-
-    //Attempt at adding an image to the popup
-    //var popupImg = '<img src="img/tornado.png">';
-    //popupContent = "<p>" + popupImg + "</p>";
-    //popupContent ="<img src='" + popupImg + "'" + " class=popupImage " + "/>";
+    //calling createPopupContent function to replace redundant code.
+    var popupContent = createPopupContent(features.properties, attribute);
     
     //bind the popup to the circle marker and create an offset so popup doesn't cover symbol
     layer.bindPopup(popupContent, {
@@ -216,13 +223,9 @@ function updatePropSymbols(attribute) {
 
             //built in function for leaflet that will change the prop symbol radius based on the values
             layer.setRadius(radius);
-
-            //add popup content string for State
-            var popupContent = "<p><b>State:</b> " + props.State + "</p>";
-
-            //add attribute data to string
-            var year = attribute.split(" ")[0];
-            popupContent += "<p><b>Tornado Fatalities in " + year + ":</b> " + props[attribute] + "</p>";
+                   
+            //calling createPopupContent function to replace redundant code.
+            var popupContent = createPopupContent(props, attribute);
 
             //update popup content
             popup = layer.getPopup();
@@ -252,43 +255,5 @@ function getData() {
 //loads basemap defined in createMap function and assigned to mymap global variable
 document.addEventListener('DOMContentLoaded', createMap);
 
-
-
-//Leftover code from activity 5, no longer needed
-/*//function adds circle markers for the cities population values and styles markers
-function createPropSymbols(data){
-    var attribute = '2010 Deaths';
-    var geojsonMarkerOptions = {
-        radius: 8,
-        fillColor: "#ff7800",
-        color: "#000",
-        weight: 1,
-        opacity: 1,
-        fillOpacity: 0.8
-    };
-    //adding geoJSON layer to the map, determining each features value and radius
-    L.geoJson(data, {
-        pointToLayer: function (features, latlng) {
-            var attValue = Number(features.properties[attribute]);//forces value to be read as numeric
-            //gives prop symbol a radius by taking the values obtained in the calcPropRadius function above
-            geojsonMarkerOptions.radius = calcPropRadius(attValue);
-            console.log(features.properties, attValue);//inspect pop/radius values
-            return L.circleMarker(latlng, geojsonMarkerOptions);
-        }        
-    }).addTo(mymap);
-    
-};*/
-
-/*//onEachFeature function to loop through the MegaCities data and add to popups in html string format
-function onEachFeature(features, layer) {
-    //creation of variable to hold popup content from MegaCities
-    var popupContent = "";
-    if (features.properties) {
-        for (var property in features.properties) {
-            popupContent += "<p>" + property + ": " + features.properties[property] + "</p>";
-        }
-        layer.bindPopup(popupContent);
-    };
-};*/
 
 

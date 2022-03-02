@@ -29,9 +29,14 @@ function calcMinValue(data) {
             var value = city.properties["Pop_"+ String(year)];
             //console.log(value)
             //push the population values to the empty array above
+            
+            //conditional for if there are 0 values
+            //if (value && value > 0){
+                //allValues.push(value);
+            //};
             allValues.push(value);
-        }
-    }
+        };
+    };
     //call on global variable created at the top of script to return the minimum
     //for the new allValues array
     var minValue = Math.min(...allValues)
@@ -68,6 +73,7 @@ function pointToLayer(features, latlng, seqAttributes) {
 
     //assign circle markers a radius based on the values
     options.radius = calcPropRadius(attValue);
+    //options.fillcolor = 
 
     //create circle marker layer and assign it to new variable
     var layer = L.circleMarker(latlng, options);
@@ -197,6 +203,9 @@ function updatePropSymbols(attribute) {
         //console.log(layer);//shows all objects including the basemap, which we do not want to iterate through,
         //so we need to find a way to only get the objects we want.
         //the conditional if statement below selects objects by based on if they have features and attributes.
+        //if there are zero values, need to remove && layer.feature.properties[attribute] - this part is preventing 0 values from being redrawn.
+        //will only work with a single geojson layer, mire than one would require additional conditional.
+        //layer.feature ensures only features are updated,
         if (layer.feature && layer.feature.properties[attribute]){
             //console.log(layer)//logs only objects with features and attributes, asks if this conditional exists
             //update the layer style and popup and access feature properties

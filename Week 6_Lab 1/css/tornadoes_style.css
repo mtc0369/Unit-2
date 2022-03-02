@@ -1,0 +1,62 @@
+/*Add CSS styles here*/
+
+body{
+    margin:0;
+}
+
+.custom-popup .leaflet-popup-content p {
+    margin: 0.2em 0;    
+    /*display:inline;*/
+}
+
+.custom-popup .leaflet-popup-content-wrapper {
+    background:#0881fa;
+    color:#fff;
+    text-align: center;
+    font-size:16px;
+    border-radius: 25px;
+    border: 2px black solid;
+    /*box-shadow:50% 50%;*/ 
+}
+
+.custom-popup .leaflet-popup-tip {
+    background:#95c6f7;
+    }
+
+.popupImage {
+    max-width: 15%;
+    max-height: 15%;    
+    }
+
+#mapid{
+    height:100vh;
+    width:70vw;
+    display: inline-block;
+}
+
+#panel {
+    width: 25%;
+    padding: 20px;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    line-height: 42px;
+    background:#a2caf3;
+}
+
+.range-slider {    
+    width: 55%;
+    display: inline-block;
+    vertical-align: 30%;
+    text-align: center;
+    line-height: 42px;        
+}
+
+.step {
+    width: 20%;
+}
+
+.step img {
+    width: 75%;          
+}
+
