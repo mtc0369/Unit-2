@@ -61,7 +61,7 @@ function calcStats(data) {
 //function to calculate the radius of the proportional symbols
 function calcPropRadius(attValue) {
     //variable to hold number used in formula below to size Prop sybols evenly
-    var minRadius = 5
+    var minRadius = 3
     //Flannery Appearance Compensation formula held in new variable
     //replaced minRadius in equation with 1, zeros return NaN or Infinity
     var radius = 1.0083 * Math.pow(attValue/1, 0.5715) * minRadius
@@ -317,7 +317,7 @@ function updateLegend(attribute) {
       document.querySelector("#" + i).setAttribute("cy", 145 - radius);
       document.querySelector("#" + i).setAttribute("r", radius)
   
-      document.querySelector("#" + i + "-text").textContent = Math.round(circleValues[i]) + " Deaths";  
+      document.querySelector("#" + i + "-text").textContent = Math.round(circleValues[i]) + " Fatalities";  
       
     }
 };
@@ -355,10 +355,10 @@ function createLegend() {
                 //circle string
                 svg += '<circle class="legend-circle" id="' + circles[i] + '" r="' + radius + '"cy="' + cy + '" fill="#F47821" fill-opacity="0.8" stroke="#000000" cx="80"/>';
                 //spaces the text nxt to circles
-                var textY = i * 30 + 30;
+                var textY = i * 48 + 48;
 
                 //text string
-                svg +='<text id="' + circles[i] + '-text" x="200" y="' + textY + '">' + Math.round(dataStats[circles[i]]) + " Deaths" + "</text>";
+                svg +='<text id="' + circles[i] + '-text" x="200" y="' + textY + '">' + Math.round(dataStats[circles[i]]) + " Fatalities" + "</text>";
             };
 
             //close svg string

@@ -56,7 +56,7 @@ function calcStats(data) {
 //function to calculate the radius of the proportional symbols
 function calcPropRadius(attValue) {
     //variable to hold number used in formula below to size Prop sybols evenly
-    var minRadius = 5
+    var minRadius = 8
     //Flannery Appearance Compensation formula held in new variable
     var radius = 1.0083 * Math.pow(attValue/dataStats.min, 0.5715) * minRadius
     //return the radius of each symbol
