@@ -1,21 +1,13 @@
 //declaring a global map variables so they are accessible throughout
 var mymap;
-var dataStats = {};
-
-/*function PopupContent(properties, attribute){
-    this.properties = properties;
-    this.attribute = attribute;
-    this.year = attribute.split("_")[1];
-    this.population = this.properties[attribute];
-    this.formatted = "<p><b>State:</b> " + this.properties.State + "</p><p><b>Tornado Fatalities in " + this.year + ":</b> " + this.properties[attribute] + "</p>";
-};*/
+var minValue;
 
 //function to create the Leaflet basemap
 function createMap() {
-    mymap = L.map('mapid').setView([39, -90], 5.4);
+    mymap = L.map('mapid').setView([39, -89], 5.4);
     mymap.setMaxBounds([
-        [38, -120],
-        [38, -70]
+        [39, -130],
+        [39, -60]
     ]);  
 
     //adding tile layer 
@@ -29,7 +21,7 @@ function createMap() {
     getData(mymap);
 };
 
-function calcStats(data) {
+function calculateMinValue(data) {
     var allValues = []; //variable for empty array to hold data values
     //for loop to iterate through the array in Deadliest Tornadoes geojson
     for(var state of data.features) {
@@ -42,19 +34,10 @@ function calcStats(data) {
             
         }
     }
-    //get min, max, mean stats for the array
-    dataStats.min = Math.min(...allValues);
-    dataStats.max = Math.max(...allValues);
-    //Calculate meanValue
-    var sum = allValues.reduce(function(a,b){
-        return a+b;
-    });
-    dataStats.mean = sum / allValues.length;    
-    
     //call on global variable created at the top of script to return the minimum
     //for the new allValues array
-    //var minValue = Math.min(...allValues)
-    //return minValue;
+    var minValue = Math.min(...allValues)
+    return minValue;
     
 };
 //returns either infinity or not a number
@@ -150,7 +133,7 @@ function processData(data) {
         };
     };
     //check the result
-    //console.log(attributes);
+    console.log(attributes);
     //return data in attributes container
     return attributes;
 };
@@ -158,35 +141,11 @@ function processData(data) {
 //Create sequence controls
 function createSequenceControls(seqAttributes) {
     //create a slider - range input element - special type of element with multiple manifestations such as check boxes
-    //var slider = "<input class='range-slider' type='range'></input>";//multiple ways to acomplish but this is easiest method.
+    var slider = "<input class='range-slider' type='range'></input>";//multiple ways to acomplish but this is easiest method.
     //adds reverse button to panel, left of slider and includes the word, which can be removed if an arrow is in its place.
-    //document.querySelector("#panel").insertAdjacentHTML('beforeend', '<button class="step" id="reverse"></button>');
+    document.querySelector("#panel").insertAdjacentHTML('beforeend', '<button class="step" id="reverse"></button>');
     //adds slider to panel
-    //document.querySelector("#panel").insertAdjacentHTML('beforeend', slider);
-
-    //replaces several DOM elements from earlier script and places the slider on bottom left corner of map.
-    var SequenceControl = L.Control.extend({
-        options: {
-            position: 'bottomleft'
-        },
-        onAdd: function () {
-            //creating the control container div with a particular class name
-            var container = L.DomUtil.create('div', 'sequence-control-container');
-
-            //create range input element - slider, combine elements
-            container.insertAdjacentHTML('beforeend', '<button class="step" id="reverse" title="reverse"><img src="img/arrow_reverse.png"></button>');
-            container.insertAdjacentHTML('beforeend', '<input class="range-slider" type="range">');            
-            container.insertAdjacentHTML('beforeend', '<button class="step" id="forward" title="forward"><img src="img/arrow_forward.png"></button>');
-            //...initialize other DOM elements
-
-            //disable default mouse controls for the container
-            L.DomEvent.disableClickPropagation(container);
-
-            return container;
-        }
-    });
-
-    mymap.addControl(new SequenceControl());//add listeners after adding control    
+    document.querySelector("#panel").insertAdjacentHTML('beforeend', slider);
 
     document.querySelector('.range-slider').max = 10;//direct HTML element representing max value of the slider - index 10
     document.querySelector('.range-slider').min = 0;
@@ -194,11 +153,11 @@ function createSequenceControls(seqAttributes) {
     document.querySelector('.range-slider').step = 1;//tells slider to advance in increments of 1.
 
     //adds forward button to panel, right of slider and includes the word, which can be removed if an arrow is in its place.
-    //document.querySelector("#panel").insertAdjacentHTML('beforeend', '<button class="step" id="forward"></button>');
+    document.querySelector("#panel").insertAdjacentHTML('beforeend', '<button class="step" id="forward"></button>');
 
     //Inserting buttons in place of reverse and forward - need to get png from noun project or another source and replace link
-    //document.querySelector('#reverse').insertAdjacentHTML('beforeend', '<img src="img/arrow_reverse.png">');
-    //document.querySelector('#forward').insertAdjacentHTML('beforeend', '<img src="img/arrow_forward.png">');
+    document.querySelector('#reverse').insertAdjacentHTML('beforeend', '<img src="img/arrow_reverse.png">');
+    document.querySelector('#forward').insertAdjacentHTML('beforeend', '<img src="img/arrow_forward.png">');
 
     //add sequence conrols - click listener for forward and reverse buttons
     //need querySelectorAll to encompase all functions in the class .step
@@ -274,104 +233,6 @@ function updatePropSymbols(attribute) {
 
         };
     });
-    updateLegend(attribute);
-};
-
-function getCircleValues(attribute) {
-    var min = Infinity, max = -Infinity;
-
-    mymap.eachLayer(function(layer){
-        if (layer.feature) {
-            var attributeValue = Number(layer.feature.properties[attribute]);
-
-            if (attributeValue < min) {
-                min = attributeValue;
-            }
-            if (attributeValue > max) {
-                max = attributeValue;
-            }
-        }
-    });
-    var mean = (max + min) / 2;
-
-    return {
-        max: max,
-        mean: mean,
-        min: min,
-    };
-};
-
-function updateLegend(attribute) {
-    //create content for legend
-    var year = attribute.split(" ")[0];
-    //replace legend content
-    document.querySelector("span.year").innerHTML = year;
-  
-    //get the max, mean, and min values as an object
-    var circleValues = getCircleValues(attribute);
-  
-    for (var i in circleValues) {
-      //get the radius
-      var radius = calcPropRadius(circleValues[i]);
-  
-      document.querySelector("#" + i).setAttribute("cy", 145 - radius);
-      document.querySelector("#" + i).setAttribute("r", radius)
-  
-      document.querySelector("#" + i + "-text").textContent = Math.round(circleValues[i]) + " Deaths";  
-      
-    }
-};
-
-//Example 2.7 creating legend controls
-function createLegend() {
-    var LegendControl = L.Control.extend({
-        options: {
-            position: 'bottomright'
-        },
-        onAdd: function() {
-            //create the control container with a particular class name
-            var container = L.DomUtil.create('div', 'legend-control-container');
-
-            //SCRITP FOR LEGEND HERE
-            container.innerHTML = '<p class="temporalLegend"><b>Tornado Fatalities in <span class="year">2010</span><b></p>';
-
-            //Step 1: start attribute legend svg string
-            var svg = '<svg id="attribute-legend" width="300px" height=150px">';
-            
-            //add legend svg to container
-            //container.innerHTML += svg;
-            
-            //array of circle names to base loop on
-            var circles = ["max", "mean", "min"];
-
-            //Step 2: loop to add each circle and text to svg string
-            for (var i=0; i<circles.length; i++){
-                //Step 3: assign the r and cy attributes  
-                var radius = calcPropRadius(dataStats[circles[i]]);
-                //console.log(radius);  
-                var cy = 145 - radius;
-                //console.log(cy);
-                
-                //circle string
-                svg += '<circle class="legend-circle" id="' + circles[i] + '" r="' + radius + '"cy="' + cy + '" fill="#F47821" fill-opacity="0.8" stroke="#000000" cx="80"/>';
-                //spaces the text nxt to circles
-                var textY = i * 30 + 30;
-
-                //text string
-                svg +='<text id="' + circles[i] + '-text" x="200" y="' + textY + '">' + Math.round(dataStats[circles[i]]) + " Deaths" + "</text>";
-            };
-
-            //close svg string
-            svg += "</svg>";
-
-            //add attribute legend svg to container
-            container.insertAdjacentHTML('beforeend',svg);
-
-            return container;
-        }
-    });
-    
-    mymap.addControl(new LegendControl());
 };
 
 //getData function to retrieve data from Deadliest Tornadoes geoJSON
@@ -386,11 +247,9 @@ function getData() {
             var seqAttributes = processData(json);
             //callback function calling the calculateMinValue function and
             //assigning the values to the minValue global variable
-            //minValue = calculateMinValue(json);
-            calcStats(json);
+            minValue = calculateMinValue(json);
             createPropSymbols(json, seqAttributes);
-            createSequenceControls(seqAttributes)
-            createLegend(seqAttributes);           
+            createSequenceControls(seqAttributes);           
         });        
 };
 //loads basemap defined in createMap function and assigned to mymap global variable
