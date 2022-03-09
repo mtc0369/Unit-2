@@ -3,7 +3,7 @@
 body{
     margin:0;     
 }
-
+/*styling for title*/
 #title {
     padding: 2px;
     text-align: center;
@@ -13,21 +13,12 @@ body{
     background-color: rgb(80, 112, 255, 0.9);
     display:center;
 }
-
-/*#title_text {    
-    padding-right: 400px;
-    text-align: center !important;    
-    font-size:38px;    
-    color:#fff;
-    background-color: rgb(80, 112, 255);
-    display:center !important;    
-}*/
-
+/*styling for metadata*/
 #meta_text {
     font-size:10px;    
     color:#fff;
 }
-
+/*styling for info textbox*/
 #info_text {
     padding: 5px;    
     font-size:13.5px;    
@@ -37,12 +28,12 @@ body{
     height: 490px;
     border-radius: 10px;
 }
-
+/*styling for state popups*/
 .custom-popup .leaflet-popup-content p {
     margin: 0.2em 0;    
     /*display:inline;*/
 }
-
+/*styling for state popups*/
 .custom-popup .leaflet-popup-content-wrapper {
     background:#3093f7;
     color:#fff;
@@ -52,39 +43,22 @@ body{
     border: 2px black solid;
     /*box-shadow:50% 50%;*/ 
 }
-
+/*styling for state popups*/
 .custom-popup .leaflet-popup-tip {
     background:#95c6f7;
     }
-
+/*styling for imported tornado image*/
 .popupImage {
     max-width: 15%;
     max-height: 15%;    
     }
-
-.popup_Image {
-     max-width: 3.5%;
-     max-height: 3.5%;     
-     text-align: center;
-     display:center;   
-    }    
-
+/*styling for map*/
 #mapid{
     height:90vh;
     width:100%;
     display: inline-block;
 }
-
-/*#panel {
-    width: 25%;
-    padding: 20px;
-    display: inline-block;
-    vertical-align: top;
-    text-align: center;
-    line-height: 42px;
-    background:#a2caf3;
-}*/
-
+/*styling for range slider container*/
 .sequence-control-container {
     width: 350px;
     height: 35px;
@@ -95,7 +69,7 @@ body{
     border: solid gray 1px;
     border-radius: 10px;
 }
-
+/*styling for range slider - defaults disabled*/
 .range-slider {
     -webkit-appearance: none;
     appearance: none;
@@ -108,11 +82,11 @@ body{
     transition: opacity .2s;
     vertical-align: 35%;   
 }
-
+/*styling for range slider - defaults disabled*/
 .range-slider:hover {
     opacity: 1; 
 }
-
+/*styling for range slider - defaults disabled*/
 .range-slider::-webkit-slider-thumb {
     -webkit-appearance: none; 
     appearance: none;
@@ -122,7 +96,7 @@ body{
     background: #3093f7;     
     cursor: pointer; 
 }
-  
+/*styling for range slider - defaults disabled*/  
 .range-slider::-moz-range-thumb {
     width: 20px; 
     height: 20px; 
@@ -130,7 +104,7 @@ body{
     background: #3093f7;     
     cursor: pointer; 
 }
-
+/*range slider step length*/
 .step {
     width: 40px;
 }
@@ -139,7 +113,7 @@ body{
     width: 100%;
     height: auto;         
 }
-
+/*styling for legend*/
 .legend-control-container {
     width: 260px;
     height: 220px;
@@ -149,8 +123,9 @@ body{
     font-size:14px;
     text-align: center;
     padding: 5px;
+    border: 2px black solid;
 }
-
+/*styling for legend title*/
 .temporalLegend {
     font-size:18px;
 }

@@ -2,14 +2,6 @@
 var mymap;
 var dataStats = {};
 
-/*function PopupContent(properties, attribute){
-    this.properties = properties;
-    this.attribute = attribute;
-    this.year = attribute.split("_")[1];
-    this.population = this.properties[attribute];
-    this.formatted = "<p><b>State:</b> " + this.properties.State + "</p><p><b>Tornado Fatalities in " + this.year + ":</b> " + this.properties[attribute] + "</p>";
-};*/
-
 //function to create the Leaflet basemap
 function createMap() {
     mymap = L.map('mapid').setView([50, -80], 5);
@@ -25,20 +17,7 @@ function createMap() {
         maxZoom: 22
     }).addTo(mymap);
 
-    /*L.Control.textbox = L.Control.extend({
-        onAdd: function(mymap) {
-        var text = L.DomUtil.create('div');
-        text.id = "title_text";
-        var popup_Img = '<img  class="popup_Image" src="img/tornado.png">';
-        text.innerHTML =  "<strong>United States Tornado Fatalities 2010-2020</strong>"        
-        return text;                
-        },    
-        onRemove: function(mymap) {    
-        }
-    });
-    L.control.textbox = function(opts) {return new L.Control.textbox(opts);}
-    L.control.textbox({position: 'topright'}).addTo(mymap);*/
-
+    //adding text for metadata to map
     L.Control.metaText = L.Control.extend({
         onAdd: function(mymap) {
         var meta = L.DomUtil.create('div');
@@ -51,7 +30,8 @@ function createMap() {
     });
     L.control.metaText = function(opts) {return new L.Control.metaText(opts);}
     L.control.metaText({position: 'bottomleft'}).addTo(mymap);
-    
+
+    //adding textbox to map for additional context
     L.Control.infoText = L.Control.extend({
         onAdd: function(mymap) {
         var info = L.DomUtil.create('div');
@@ -68,7 +48,7 @@ function createMap() {
     //calling getData function
     getData(mymap);
 };
-
+//function to calculate the min, mean, and max values
 function calcStats(data) {
     var allValues = []; //variable for empty array to hold data values
     //for loop to iterate through the array in Deadliest Tornadoes geojson
@@ -78,8 +58,7 @@ function calcStats(data) {
             var value = state.properties[String(year)+" Deaths"];
             //console.log(value)
             //push the population values to the empty array above
-            allValues.push(value);
-            
+            allValues.push(value);            
         }
     }
     //get min, max, mean stats for the array
@@ -90,14 +69,8 @@ function calcStats(data) {
         return a+b;
     });
     dataStats.mean = sum / allValues.length;    
-    
-    //call on global variable created at the top of script to return the minimum
-    //for the new allValues array
-    //var minValue = Math.min(...allValues)
-    //return minValue;
-    
 };
-//returns either infinity or not a number
+
 //function to calculate the radius of the proportional symbols
 function calcPropRadius(attValue) {
     //variable to hold number used in formula below to size Prop sybols evenly
@@ -111,7 +84,7 @@ function calcPropRadius(attValue) {
     return radius;
 };
 
-//added function to replace the redundant code in pointToLayer and updatepropSymbols functions
+//added createPopupContent function to replace the redundant code in pointToLayer and updatepropSymbols functions
 function createPopupContent(properties, attribute){
     //build the popup content string - State and attribute label in bold
     var popupContent = "<p><b>State:</b> " + properties.State + "</p>";
@@ -123,7 +96,7 @@ function createPopupContent(properties, attribute){
     //adding formatted attribute data to popup content - Tornado fatalities, index 0 for year
     var year = attribute.split(" ")[0];
     popupContent += "<p><b>Tornado Fatalities in " + year + ":</b> " + properties[attribute] + "</p>";
-
+    //return popup content
     return popupContent;
 };
 
@@ -157,8 +130,6 @@ function pointToLayer(features, latlng, seqAttributes) {
     layer.bindPopup(popupContent, {
         offset: new L.Point(0,-options.radius)
     });
-    //console.log(features.properties, attValue);//inspect pop/radius values
-
     //return the circlemarker with popup to the L.geoJson pointToLayer option
     return layer;
 };
@@ -188,21 +159,13 @@ function processData(data) {
         if (attribute.indexOf(" Deaths") > -1){
             attributes.push(attribute);//if attribute ocurs and is found, it will be added to the list/array.
         };
-    };
-    //check the result
-    //console.log(attributes);
+    };    
     //return data in attributes container
     return attributes;
 };
 
 //Create sequence controls
-function createSequenceControls(seqAttributes) {
-    //create a slider - range input element - special type of element with multiple manifestations such as check boxes
-    //var slider = "<input class='range-slider' type='range'></input>";//multiple ways to acomplish but this is easiest method.
-    //adds reverse button to panel, left of slider and includes the word, which can be removed if an arrow is in its place.
-    //document.querySelector("#panel").insertAdjacentHTML('beforeend', '<button class="step" id="reverse"></button>');
-    //adds slider to panel
-    //document.querySelector("#panel").insertAdjacentHTML('beforeend', slider);
+function createSequenceControls(seqAttributes) {    
 
     //replaces several DOM elements from earlier script and places the slider on bottom left corner of map.
     var SequenceControl = L.Control.extend({
@@ -216,8 +179,7 @@ function createSequenceControls(seqAttributes) {
             //create range input element - slider, combine elements
             container.insertAdjacentHTML('beforeend', '<button class="step" id="reverse" title="reverse"><img src="img/arrow_reverse.png"></button>');
             container.insertAdjacentHTML('beforeend', '<input class="range-slider" type="range">');            
-            container.insertAdjacentHTML('beforeend', '<button class="step" id="forward" title="forward"><img src="img/arrow_forward.png"></button>');
-            //...initialize other DOM elements
+            container.insertAdjacentHTML('beforeend', '<button class="step" id="forward" title="forward"><img src="img/arrow_forward.png"></button>');            
 
             //disable default mouse controls for the container
             L.DomEvent.disableClickPropagation(container);
@@ -232,21 +194,12 @@ function createSequenceControls(seqAttributes) {
     document.querySelector('.range-slider').min = 0;
     document.querySelector('.range-slider').value = 0;//sets current value
     document.querySelector('.range-slider').step = 1;//tells slider to advance in increments of 1.
-
-    //adds forward button to panel, right of slider and includes the word, which can be removed if an arrow is in its place.
-    //document.querySelector("#panel").insertAdjacentHTML('beforeend', '<button class="step" id="forward"></button>');
-
-    //Inserting buttons in place of reverse and forward - need to get png from noun project or another source and replace link
-    //document.querySelector('#reverse').insertAdjacentHTML('beforeend', '<img src="img/arrow_reverse.png">');
-    //document.querySelector('#forward').insertAdjacentHTML('beforeend', '<img src="img/arrow_forward.png">');
-
-    //add sequence conrols - click listener for forward and reverse buttons
+    
     //need querySelectorAll to encompase all functions in the class .step
     //forEach loops through each instance of the element
     document.querySelectorAll('.step').forEach(function(step){
         step.addEventListener("click", function(){
-            var index = document.querySelector('.range-slider').value;
-            //console.log(index);
+            var index = document.querySelector('.range-slider').value;            
             //sequence - increment or decrement for the for and rev buttons
             //shorthand if statement, basically creating a continuous loop each way
             if (step.id == 'forward') {
@@ -258,13 +211,10 @@ function createSequenceControls(seqAttributes) {
                 //wraps sequence around to the last attribute if the first attribute is exceeded.
                 index = index < 0 ? 10 : index;
             };
-
             //updates the slider tool - connects the click loop to the slider, will not work without this. 
             document.querySelector('.range-slider').value = index;
 
-            updatePropSymbols(seqAttributes[index]);//calling updatePropSymbols function
-
-            //console.log(seqAttributes[index]);//will log the index name/label, allows you to directly alter the attribute being selected
+            updatePropSymbols(seqAttributes[index]);//calling updatePropSymbols function            
         });        
     });
 
@@ -286,15 +236,11 @@ function updatePropSymbols(attribute) {
         //console.log(layer);//shows all objects including the basemap
 
         //the conditional if statement below selects objects by based on if they have features and attributes.
-        if (layer.feature){//removed '&& layer.feature.properties[attribute]'- prevented 0 value symbols from updating
-            //console.log(layer)//logs only objects with features and attributes, asks if this conditional exists
+        if (layer.feature){            
             
             //update the layer style and popup and access feature properties
             //includes all feature properties within 1 data point and holds them in the props variable.
-            var props = layer.feature.properties;
-            
-            //logs values for a particular year in each city
-            //console.log(props[attribute]);
+            var props = layer.feature.properties;            
 
             //update each feature symbols radius based on iterated attribute values
             //access existing calcPropRadius function
@@ -314,57 +260,18 @@ function updatePropSymbols(attribute) {
 
         };
     });
-    updateLegend(attribute);
+    updateLegend(attribute);//call updateLegend function
 };
 
-//Don't need this with a static legend
-/*function getCircleValues(attribute) {
-    var min = Infinity, max = -Infinity;
-
-    mymap.eachLayer(function(layer){
-        if (layer.feature) {
-            var attributeValue = Number(layer.feature.properties[attribute]);
-
-            if (attributeValue < min) {
-                min = attributeValue;
-            }
-            if (attributeValue > max) {
-                max = attributeValue;
-            }
-        }
-    });
-    var mean = (max + min) / 2;
-
-    return {
-        max: max,
-        mean: mean,
-        min: min,
-    };
-};*/
-
+//function to update year in legend title
 function updateLegend(attribute) {
     //create content for legend
     var year = attribute.split(" ")[0];
     //replace legend content
-    document.querySelector("span.year").innerHTML = year;
-    
-    //don't need this - will cycle through the values and resize circles
-    /*//get the max, mean, and min values as an object
-    var circleValues = getCircleValues(attribute);
-  
-    for (var i in circleValues) {
-      //get the radius
-      var radius = calcPropRadius(circleValues[i]);
-  
-      document.querySelector("#" + i).setAttribute("cy", 140 - radius);
-      document.querySelector("#" + i).setAttribute("r", radius)
-  
-      document.querySelector("#" + i + "-text").textContent = Math.round(circleValues[i]) + " Fatalities";  
-      
-    }*/
+    document.querySelector("span.year").innerHTML = year;    
 };
 
-//Example 2.7 creating legend controls
+//creating legend controls
 function createLegend() {
     var LegendControl = L.Control.extend({
         options: {
@@ -374,21 +281,18 @@ function createLegend() {
             //create the control container with a particular class name
             var container = L.DomUtil.create('div', 'legend-control-container');
 
-            //SCRITP FOR LEGEND HERE
+            //csript for legend
             container.innerHTML = '<p class="temporalLegend"><b>Tornado Fatalities in <span class="year">2010</span><b></p>';
 
-            //Step 1: start attribute legend svg string
-            var svg = '<svg id="attribute-legend" width="275px" height=150px">';
-            
-            //add legend svg to container
-            //container.innerHTML = svg;
+            //start attribute legend svg string
+            var svg = '<svg id="attribute-legend" width="275px" height=150px">';            
             
             //array of circle names to base loop on
             var circles = ["max", "mean", "min"];
 
-            //Step 2: loop to add each circle and text to svg string
+            //loop to add each circle and text to svg string
             for (var i=0; i<circles.length; i++){
-                //Step 3: assign the r and cy attributes  
+                //assign the r and cy attributes  
                 var radius = calcPropRadius(dataStats[circles[i]]);
                 //console.log(radius);  
                 var cy = 145 - radius;
@@ -396,7 +300,7 @@ function createLegend() {
                 
                 //circle string
                 svg += '<circle class="legend-circle" id="' + circles[i] + '" r="' + radius + '"cy="' + cy + '" fill="#F47821" fill-opacity="0.8" stroke="#000000" cx="85"/>';
-                //spaces the text nxt to circles
+                //spaces the text next to circles
                 var textY = i * 60 + 20;
 
                 //text string
@@ -408,11 +312,11 @@ function createLegend() {
 
             //add attribute legend svg to container
             container.insertAdjacentHTML('beforeend',svg);
-
+            //return container
             return container;
         }
     });
-    
+    //adding legend control to map
     mymap.addControl(new LegendControl());
 };
 
@@ -425,10 +329,7 @@ function getData() {
         })
         .then(function(json){                
             //create variable to hold all attributes in the sequence set equal to processdata function
-            var seqAttributes = processData(json);
-            //callback function calling the calculateMinValue function and
-            //assigning the values to the minValue global variable
-            //minValue = calculateMinValue(json);
+            var seqAttributes = processData(json);            
             calcStats(json);
             createPropSymbols(json, seqAttributes);
             createSequenceControls(seqAttributes)
@@ -436,7 +337,6 @@ function getData() {
         });        
 };
 //loads basemap defined in createMap function and assigned to mymap global variable
-//document.querySelector("#title").insertAdjacentHTML('beforeend', '<p><b>United States Tornado Fatalities 2010-2020<b></p>');
 document.addEventListener('DOMContentLoaded', createMap);
 
 
