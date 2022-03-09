@@ -12,11 +12,11 @@ var dataStats = {};
 
 //function to create the Leaflet basemap
 function createMap() {
-    mymap = L.map('mapid').setView([39, -90], 5.4);
+    mymap = L.map('mapid').setView([50, -90], 5.4);
     mymap.setMaxBounds([
         [38, -120],
         [38, -70]
-    ]);  
+    ]);    
 
     //adding tile layer 
     L.tileLayer('https://{s}.tile.thunderforest.com/transport-dark/{z}/{x}/{y}.png?apikey={apikey}', {
@@ -24,6 +24,46 @@ function createMap() {
         apikey: '41071a22bdee4582b8af237baf91198c',
         maxZoom: 22
     }).addTo(mymap);
+
+    L.Control.textbox = L.Control.extend({
+        onAdd: function(mymap) {
+        var text = L.DomUtil.create('div');
+        text.id = "title_text";
+        var popup_Img = '<img  class="popup_Image" src="img/tornado.png">';
+        text.innerHTML =  popup_Img + "<strong> United States Tornado Fatalities 2010-2020</strong>" + popup_Img        
+        return text;                
+        },    
+        onRemove: function(mymap) {    
+        }
+    });
+    L.control.textbox = function(opts) {return new L.Control.textbox(opts);}
+    L.control.textbox({position: 'topright'}).addTo(mymap);
+
+    L.Control.metaText = L.Control.extend({
+        onAdd: function(mymap) {
+        var meta = L.DomUtil.create('div');
+        meta.id = "meta_text";        
+        meta.innerHTML =  "Created By: Michael Connolly; Source: NOAA Storm Prediction Center; Date: 3/9/2022"        
+        return meta;                
+        },    
+        onRemove: function(mymap) {    
+        }
+    });
+    L.control.metaText = function(opts) {return new L.Control.metaText(opts);}
+    L.control.metaText({position: 'bottomleft'}).addTo(mymap);
+    
+    L.Control.infoText = L.Control.extend({
+        onAdd: function(mymap) {
+        var info = L.DomUtil.create('div');
+        info.id = "info_text";        
+        info.innerHTML =  "Data here"        
+        return info;                
+        },    
+        onRemove: function(mymap) {    
+        }
+    });
+    L.control.infoText = function(opts) {return new L.Control.infoText(opts);}
+    L.control.infoText({position: 'topleft'}).addTo(mymap);  
 
     //calling getData function
     getData(mymap);
@@ -277,7 +317,8 @@ function updatePropSymbols(attribute) {
     updateLegend(attribute);
 };
 
-function getCircleValues(attribute) {
+//Don't need this with a static legend
+/*function getCircleValues(attribute) {
     var min = Infinity, max = -Infinity;
 
     mymap.eachLayer(function(layer){
@@ -299,27 +340,28 @@ function getCircleValues(attribute) {
         mean: mean,
         min: min,
     };
-};
+};*/
 
 function updateLegend(attribute) {
     //create content for legend
     var year = attribute.split(" ")[0];
     //replace legend content
     document.querySelector("span.year").innerHTML = year;
-  
-    //get the max, mean, and min values as an object
+    
+    //don't need this - will cycle through the values and resize circles
+    /*//get the max, mean, and min values as an object
     var circleValues = getCircleValues(attribute);
   
     for (var i in circleValues) {
       //get the radius
       var radius = calcPropRadius(circleValues[i]);
   
-      document.querySelector("#" + i).setAttribute("cy", 145 - radius);
+      document.querySelector("#" + i).setAttribute("cy", 140 - radius);
       document.querySelector("#" + i).setAttribute("r", radius)
   
       document.querySelector("#" + i + "-text").textContent = Math.round(circleValues[i]) + " Fatalities";  
       
-    }
+    }*/
 };
 
 //Example 2.7 creating legend controls
@@ -336,10 +378,10 @@ function createLegend() {
             container.innerHTML = '<p class="temporalLegend"><b>Tornado Fatalities in <span class="year">2010</span><b></p>';
 
             //Step 1: start attribute legend svg string
-            var svg = '<svg id="attribute-legend" width="300px" height=150px">';
+            var svg = '<svg id="attribute-legend" width="275px" height=150px">';
             
             //add legend svg to container
-            //container.innerHTML += svg;
+            //container.innerHTML = svg;
             
             //array of circle names to base loop on
             var circles = ["max", "mean", "min"];
@@ -353,12 +395,12 @@ function createLegend() {
                 //console.log(cy);
                 
                 //circle string
-                svg += '<circle class="legend-circle" id="' + circles[i] + '" r="' + radius + '"cy="' + cy + '" fill="#F47821" fill-opacity="0.8" stroke="#000000" cx="80"/>';
+                svg += '<circle class="legend-circle" id="' + circles[i] + '" r="' + radius + '"cy="' + cy + '" fill="#F47821" fill-opacity="0.8" stroke="#000000" cx="85"/>';
                 //spaces the text nxt to circles
-                var textY = i * 48 + 48;
+                var textY = i * 60 + 20;
 
                 //text string
-                svg +='<text id="' + circles[i] + '-text" x="200" y="' + textY + '">' + Math.round(dataStats[circles[i]]) + " Fatalities" + "</text>";
+                svg +='<text id="' + circles[i] + '-text" x="170" y="' + textY + '">' + Math.round(dataStats[circles[i]]) + " Fatalities" + "</text>";
             };
 
             //close svg string
@@ -394,6 +436,7 @@ function getData() {
         });        
 };
 //loads basemap defined in createMap function and assigned to mymap global variable
+//document.querySelector("#title").insertAdjacentHTML('beforeend', '<p><b>United States Tornado Fatalities 2010-2020<b></p>');
 document.addEventListener('DOMContentLoaded', createMap);
 
 

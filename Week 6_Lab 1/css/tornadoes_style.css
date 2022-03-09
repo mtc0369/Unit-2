@@ -1,7 +1,40 @@
 /*Add CSS styles here*/
 
 body{
-    margin:0;
+    margin:0;     
+}
+
+/*#title {
+    padding: 5px;
+    text-align: center;
+    font-size:18px;
+    font-family: 'Times New Roman';
+    background:#3093f7;
+    display:center;
+}*/
+
+#title_text {
+    padding-right: 140px;
+    padding-left: 20px;
+    text-align: center;    
+    font-size:34px;    
+    color:#fff;
+    background:#3093f7;
+    display:center;    
+}
+
+#meta_text {
+    font-size:10px;    
+    color:#fff;
+}
+
+#info_text {
+    padding-top: 50px;    
+    font-size:14px;    
+    color:#fff;
+    background:#3093f7;    
+    width: 350px;
+    height: 725px;
 }
 
 .custom-popup .leaflet-popup-content p {
@@ -10,7 +43,7 @@ body{
 }
 
 .custom-popup .leaflet-popup-content-wrapper {
-    background:#0881fa;
+    background:#3093f7;
     color:#fff;
     text-align: center;
     font-size:16px;
@@ -28,6 +61,13 @@ body{
     max-height: 15%;    
     }
 
+.popup_Image {
+     max-width: 3.5%;
+     max-height: 3.5%;     
+     text-align: center;
+     display:center;   
+    }    
+
 #mapid{
     height:100vh;
     width:100%;
@@ -44,18 +84,10 @@ body{
     background:#a2caf3;
 }*/
 
-/*.range-slider {    
-    width: 55%;
-    display: inline-block;
-    vertical-align: 30%;
-    text-align: center;
-    line-height: 42px;        
-}*/
-
 .sequence-control-container {
     width: 350px;
     height: 35px;
-    background-color: rgba(255,255,255,0.6);  
+    background-color: rgba(255,255,255,0.7);  
     padding: 10px;  
     line-height: 30px;  
     text-align: center;  
@@ -67,13 +99,13 @@ body{
     -webkit-appearance: none;
     appearance: none;
     width: 75%; 
-    height: 10px; 
-    background: #d3d3d3; 
+    height: 8px; 
+    background: #74c4f1; 
     outline: none;    
     opacity: 0.7; 
     -webkit-transition: .2s; 
     transition: opacity .2s;
-    vertical-align: 30%;   
+    vertical-align: 35%;   
 }
 
 .range-slider:hover {
@@ -86,15 +118,15 @@ body{
     width: 20px; 
     height: 20px; 
     border-radius: 50%;
-    background: #043eaa;     
+    background: #3093f7;     
     cursor: pointer; 
 }
   
 .range-slider::-moz-range-thumb {
     width: 20px; 
     height: 20px; 
-    border-radius: 30%;
-    background: #04AA6D;     
+    border-radius: 50%;
+    background: #3093f7;     
     cursor: pointer; 
 }
 
@@ -108,12 +140,16 @@ body{
 }
 
 .legend-control-container {
-    width: auto;
-    height: auto;
+    width: 260px;
+    height: 220px;
     background: #fafafa;
     border-radius: 10%;
     opacity: 0.8;
-    font-size:16px;
+    font-size:14px;
     text-align: center;
     padding: 5px;
+}
+
+.temporalLegend {
+    font-size:18px;
 }
