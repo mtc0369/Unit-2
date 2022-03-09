@@ -20,7 +20,9 @@ body{
 }
 /*styling for info textbox*/
 #info_text {
-    padding: 5px;    
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 2px;    
     font-size:13.5px;    
     color:#fff;
     background-color: rgb(80, 112, 255, 0.9);   

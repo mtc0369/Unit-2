@@ -36,7 +36,17 @@ function createMap() {
         onAdd: function(mymap) {
         var info = L.DomUtil.create('div');
         info.id = "info_text";        
-        info.innerHTML = "<h2>Background</h2><p>Historically, the worst years on record for tornado fatalities are:</p><p>1) 1917: 551 fatalities</p><p>2) 1925: 794 fatalities</p><p>3) 1927: 540 fatalities</p><p>4) 1936: 552 fatalities</p><p>5) 2011: 553 fatalities</p><h2>The Issue</h2><p>Most tornado fatalities occur in the southeastern portion of the United States; however, there is also a high frequency of tornado occurances elsewhere, such as the midwestern United States. So why does the southeastern United States consistently have such high numbers of fatalities?"               
+        info.innerHTML = '<h2>Background</h2>' +
+        '<p>Historically, the worst years on record for tornado fatalities are:</p>' +
+        '<p>1) 1917: 551 fatalities</p>' + 
+        '<p>2) 1925: 794 fatalities</p>' +
+        '<p>3) 1927: 540 fatalities</p>' +
+        '<p>4) 1936: 552 fatalities</p>' +
+        '<p>5) 2011: 553 fatalities</p>' +
+        '<h2>The Issue</h2>' +
+        '<p>Most tornado fatalities occur in the southeastern portion of the United States; however, \
+        there is also a high frequency of tornado occurances elsewhere, such as the midwestern United States. \
+        So why does the southeastern United States consistently have such high numbers of fatalities?'               
         return info;                
         },    
         onRemove: function(mymap) {    
@@ -327,8 +337,7 @@ function getData() {
         .then(function(response){
             return response.json();
         })
-        .then(function(json){                
-            //create variable to hold all attributes in the sequence set equal to processdata function
+        .then(function(json){             
             var seqAttributes = processData(json);            
             calcStats(json);
             createPropSymbols(json, seqAttributes);
