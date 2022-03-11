@@ -3,11 +3,17 @@ var mymap;
 var dataStats = {};
 
 //function to create the Leaflet basemap
+//view centered and constrainedon areas of the US with tornadoes
+//zoom constrianed to 6 levels appropriate for the data
 function createMap() {
-    mymap = L.map('mapid').setView([50, -80], 5);
+    mymap = L.map('mapid',{
+        maxZoom:10,
+        minZoom:4,
+        scrollWheelZoom:false//scroll zoom disabled
+    }).setView([50, -80], 5);
     mymap.setMaxBounds([
-        [38.5, -125],
-        [38.5, -65]
+        [40, -125],
+        [40, -65]
     ]);    
 
     //adding tile layer 
@@ -34,16 +40,16 @@ function createMap() {
     //adding textbox to map for additional context
     L.Control.infoText = L.Control.extend({
         onAdd: function(mymap) {
-        var info = L.DomUtil.create('div');
+        var info = L.DomUtil.create('div');               
         info.id = "info_text";        
-        info.innerHTML = '<h2>Background</h2>' +
+        info.innerHTML = '<h2><img  class="popupImage" src="img/tornado.png"><u>Background</u></h2>' +
         '<p>Historically, the worst years on record for tornado fatalities are:</p>' +
         '<p>1) 1917: 551 fatalities</p>' + 
         '<p>2) 1925: 794 fatalities</p>' +
         '<p>3) 1927: 540 fatalities</p>' +
         '<p>4) 1936: 552 fatalities</p>' +
         '<p>5) 2011: 553 fatalities</p>' +
-        '<h2>The Issue</h2>' +
+        '<h2><img  class="popupImage" src="img/tornado.png"><u>The Issue</u></h2>' +
         '<p>Most tornado fatalities occur in the southeastern portion of the United States; however, \
         there is also a high frequency of tornado occurances elsewhere, such as the midwestern United States. \
         So why does the southeastern United States consistently have such high numbers of fatalities?'               
@@ -117,13 +123,14 @@ function pointToLayer(features, latlng, seqAttributes) {
     var attribute = seqAttributes[0];//because pointTolayer was reconfigured, the new attribute variable can be passed through this function
 
     //create and style markers
-    var options = {
+    var options = {                
         fillColor: "#ff7800",
         color: "#000",
         weight: 1,
         opacity: 1,
-        fillOpacity: 0.8
-    };
+        fillOpacity: 0.8                     
+    };    
+       
     //determine the feature values for the attribute
     var attValue = Number(features.properties[attribute]);//forces value to be read as numeric
 

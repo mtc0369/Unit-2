@@ -7,11 +7,14 @@ body{
 #title {
     padding: 2px;
     text-align: center;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-thickness: 5px;
     font-size:20px;
     font-family: Arial;    
     color:#fff;
     background-color: rgb(80, 112, 255, 0.9);
-    display:center;
+    display: center;
 }
 /*styling for metadata*/
 #meta_text {
@@ -23,11 +26,13 @@ body{
     padding-left: 5px;
     padding-right: 5px;
     padding-bottom: 2px;    
-    font-size:13.5px;    
+    font-size:13.5px;
+    text-align: justify;        
     color:#fff;
     background-color: rgb(80, 112, 255, 0.9);   
-    width: 275px;
-    height: 490px;
+    width: 255px;
+    height: calc(100vh - 400px);
+    overflow-y:auto;
     border-radius: 10px;
 }
 /*styling for state popups*/
@@ -52,7 +57,7 @@ body{
 /*styling for imported tornado image*/
 .popupImage {
     max-width: 15%;
-    max-height: 15%;    
+    max-height: 15%;        
     }
 /*styling for map*/
 #mapid{
@@ -130,4 +135,10 @@ body{
 /*styling for legend title*/
 .temporalLegend {
     font-size:18px;
+}
+
+.leaflet-marker-hover {
+    transition-property: opacity;
+    transition-duration: 1s;
+    opacity: 1;
 }
