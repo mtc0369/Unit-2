@@ -10,10 +10,10 @@ function createMap() {
         maxZoom:10,
         minZoom:4,
         scrollWheelZoom:false//scroll zoom disabled
-    }).setView([50, -80], 5);
+    }).setView([40, -100], 5);
     mymap.setMaxBounds([
-        [40, -125],
-        [40, -65]
+        [50, -135],
+        [25, -65]
     ]);    
 
     //adding tile layer 
